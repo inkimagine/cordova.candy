@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+                <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *">
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover user-scalable=no, shrink-to-fit=yes" >
+	  
+        <meta name="color-scheme" content="light dark">
+
+        <title>कैंडी क्रश</title>
+
+		<!-- Load any supplemental Javascript libraries here -->
+		<script src="js/lib/jquery.min.js"></script>
+		<script src="js/lib/seedrandom.js"></script>
+		<script src="js/candy.js"></script>
+		<script src="js/board.js"></script>
+		<script src="js/rules.js"></script>
+        <script src="js/handler.js"></script>
+
+        
+        <!-- Load style sheets -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/mainLayout.css">
+        <style>
+            #exitBtn {
+                position: absolute;
+                color: white;
+                top: 0px;
+                left: 0px;
+                z-index: 100;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <button id="exitBtn" class="btn btn-sm btn-danger">X</button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" id="firstColumn">
+                        <h1 id="gameTitle">कैंडी क्रश
+                        </h1>
+                        <label id="scoreLabel">0 पॉइंट्स</label><br/>
+                        <input class="btn btn-default" type="button" id="newGame" value="नया गेम">
+                        <input class="btn btn-default" type="button" id="showMove" value="मदद करें">
+
+                    </div>
+                    
+                    <div class="col-md-9" id="mainColumn">
+                        <div id="cover"></div>
+                        <div id="gameBoard"></div>
+                        <canvas id="canvas" width="320" height="320">
+                            <p>Canvas not supported on your browser.</p>
+                        </canvas>
+                    </div>
+                </div> <!-- class="row" -->
+            </div> <!-- class="container" -->
+        </div><!-- class="app" -->
+
+        <script src="cordova.js"></script>
+        <script type="text/javascript" src="js/Toast.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
